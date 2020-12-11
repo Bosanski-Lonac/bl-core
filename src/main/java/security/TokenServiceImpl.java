@@ -38,4 +38,10 @@ public class TokenServiceImpl implements TokenService {
         return claims;
 	}
 
+	@Override
+	public Long getIdFromToken(String authorization) {
+		Claims claims = parseToken(authorization);
+		return claims.get("id", Long.class);
+	}
+
 }
