@@ -1,6 +1,5 @@
 package dto;
 
-import javax.validation.constraints.Email;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
@@ -15,8 +14,7 @@ public class KreditnaKarticaCUDto {
 	@Min(value = 100, message = "Sigurnosni broj uvek ima 3 cifre")
 	@Max(value = 999, message = "Sigurnosni broj uvek ima 3 cifre")
 	private Integer sigurnosniBroj;
-	@Email
-	private String korisnikEmail;
+	//private Long korisnikId;
 	
 	public Long getBrojKartice() {
 		return brojKartice;
@@ -42,10 +40,10 @@ public class KreditnaKarticaCUDto {
 	public void setSigurnosniBroj(Integer sigurnosniBroj) {
 		this.sigurnosniBroj = sigurnosniBroj;
 	}
-	public String getKorisnikEmail() {
-		return korisnikEmail;
+	/*public Long getKorisnikId() {
+		return korisnikId;
 	}
-	public void setKorisnikEmail(String korisnikEmail) {
-		this.korisnikEmail = korisnikEmail;
-	}
+	public void setKorisnikId(Long korisnikId) {
+		this.korisnikId = korisnikId;
+	}*/
 }

@@ -22,15 +22,18 @@ public class TokenServiceImpl implements TokenService {
 	}
 
 	@Override
-	public Claims parseToken(String jwt) {
-		Claims claims;
+	public Claims parseToken(String authorization) {
+		Claims claims = null;
+		String jwt;
         try {
-            claims = Jwts.parser()
-                    .setSigningKey(jwtSecret)
-                    .parseClaimsJws(jwt)
-                    .getBody();
+        	if(authorization.startsWith("Bearer")) {
+        		jwt = authorization.split(" ")[1];
+                claims = Jwts.parser()
+                        .setSigningKey(jwtSecret)
+                        .parseClaimsJws(jwt)
+                        .getBody();
+        	}
         } catch (Exception e) {
-            return null;
         }
         return claims;
 	}

@@ -33,25 +33,26 @@ public class SecurityAspect {
         MethodSignature methodSignature = (MethodSignature) joinPoint.getSignature();
         Method method = methodSignature.getMethod();
 
-        String methodId = null;
-        String token = null;
+        Long methodId = null;
+        Claims claims = null;
 
         for (int i = 0; i < methodSignature.getParameterNames().length; i++) {
             if (methodSignature.getParameterNames()[i].equals("authorization")) {
-                if (joinPoint.getArgs()[i].toString().startsWith("Bearer")) {
-                    token = joinPoint.getArgs()[i].toString().split(" ")[1];
-                }
+            	claims = tokenService.parseToken(joinPoint.getArgs()[i].toString());
             }
             if (methodSignature.getParameterNames()[i].equals("id")) {
-            	methodId = joinPoint.getArgs()[i].toString();
+            	if(methodId == null && joinPoint.getArgs()[i] instanceof Long) {
+            		methodId = (Long)joinPoint.getArgs()[i];
+            	}
             }
+            /*if (methodSignature.getParameterNames()[i].equals("kreditnaKarticaCreateDto")) {
+            	if(joinPoint.getArgs()[i] instanceof KreditnaKarticaCUDto) {
+            		KreditnaKarticaCUDto kreditnaKarticaCreateDto = (KreditnaKarticaCUDto)joinPoint.getArgs()[i];
+            		methodId = kreditnaKarticaCreateDto.getKorisnikId();
+            	}
+            }*/
         }
-
-        if (token == null) {
-            return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
-        }
-
-        Claims claims = tokenService.parseToken(token);
+        
         if (claims == null) {
             return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
         }
@@ -61,8 +62,8 @@ public class SecurityAspect {
         String roleString = claims.get("role", String.class);
         Role role = Role.valueOf(roleString);
         if (Arrays.asList(checkSecurity.roles()).contains(role)) {
-        	if(!role.getGlobalPermissions() && checkSecurity.ownerOnly()) {
-        		String id = claims.get("id", String.class);
+        	if(!role.getGlobalPermissions() && checkSecurity.checkOwnership()) {
+        		Long id = claims.get("id", Long.class);
         		if(id.equals(methodId)) {
         			return joinPoint.proceed();
         		}

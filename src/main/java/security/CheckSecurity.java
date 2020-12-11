@@ -11,5 +11,5 @@ import enums.Role;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface CheckSecurity {
 	Role[] roles() default {};
-	boolean ownerOnly() default true;
+	boolean checkOwnership() default true;
 }
