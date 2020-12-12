@@ -16,6 +16,16 @@ public class KorisnikCUDto {
 	@Size(min = 9, max = 9, message = "Broj pasosa je uvek 9 karaktera")
 	private String brojPasosa;
 	
+	public KorisnikCUDto() {};
+	
+	public KorisnikCUDto(String email, String sifra, String brojPasosa, String ime, String prezime) {
+		this.email=email;
+		this.sifra=sifra;
+		this.brojPasosa=brojPasosa;
+		this.ime=ime;
+		this.prezime=prezime;
+	}
+	
 	public String getEmail() {
 		return email;
 	}
