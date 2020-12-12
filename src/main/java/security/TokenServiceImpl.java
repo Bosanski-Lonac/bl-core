@@ -1,6 +1,5 @@
 package security;
 
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import io.jsonwebtoken.Claims;
@@ -10,7 +9,6 @@ import io.jsonwebtoken.SignatureAlgorithm;
 @Service
 public class TokenServiceImpl implements TokenService {
 	
-	@Value("${oauth.jwt.secret}")
     private String jwtSecret;
 	
 	@Override
@@ -42,6 +40,11 @@ public class TokenServiceImpl implements TokenService {
 	public Long getIdFromToken(String authorization) {
 		Claims claims = parseToken(authorization);
 		return claims.get("id", Long.class);
+	}
+
+	@Override
+	public void setSecret(String jwtSecret) {
+		this.jwtSecret = jwtSecret;
 	}
 
 }
