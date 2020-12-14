@@ -16,16 +16,22 @@ public class KorisnikCUDto {
 	@Size(min = 9, max = 9, message = "Broj pasosa je uvek 9 karaktera")
 	private String brojPasosa;
 	
-	public KorisnikCUDto() {};
-	
-	public KorisnikCUDto(String email, String sifra, String brojPasosa, String ime, String prezime) {
-		this.email=email;
-		this.sifra=sifra;
-		this.brojPasosa=brojPasosa;
-		this.ime=ime;
-		this.prezime=prezime;
+	public KorisnikCUDto() {
+		
 	}
 	
+	public KorisnikCUDto(@Email(message = "Mora biti validan email") String email,
+			@Size(min = 5, message = "Sifra mora da bude bar 5 karaktera") String sifra,
+			@NotBlank(message = "Ime ne moze ostati prazno") String ime,
+			@NotBlank(message = "Prezime ne moze ostati prazno") String prezime,
+			@Size(min = 9, max = 9, message = "Broj pasosa je uvek 9 karaktera") String brojPasosa) {
+		super();
+		this.email = email;
+		this.sifra = sifra;
+		this.ime = ime;
+		this.prezime = prezime;
+		this.brojPasosa = brojPasosa;
+	}
 	public String getEmail() {
 		return email;
 	}

@@ -14,8 +14,22 @@ public class KreditnaKarticaCUDto {
 	@Min(value = 100, message = "Sigurnosni broj uvek ima 3 cifre")
 	@Max(value = 999, message = "Sigurnosni broj uvek ima 3 cifre")
 	private Integer sigurnosniBroj;
-	//private Long korisnikId;
 	
+	public KreditnaKarticaCUDto() {
+		
+	}
+	
+	public KreditnaKarticaCUDto(
+			@Min(value = 100000000, message = "Broj kartice je izmedju 9 i 19 cifara") Long brojKartice,
+			@NotBlank(message = "Ime vlasnika ne moze ostati prazno") String imeVlasnika,
+			@NotBlank(message = "Prezime vlasnika ne moze ostati prazno") String prezimeVlasnika,
+			@Min(value = 100, message = "Sigurnosni broj uvek ima 3 cifre") @Max(value = 999, message = "Sigurnosni broj uvek ima 3 cifre") Integer sigurnosniBroj) {
+		super();
+		this.brojKartice = brojKartice;
+		this.imeVlasnika = imeVlasnika;
+		this.prezimeVlasnika = prezimeVlasnika;
+		this.sigurnosniBroj = sigurnosniBroj;
+	}
 	public Long getBrojKartice() {
 		return brojKartice;
 	}
