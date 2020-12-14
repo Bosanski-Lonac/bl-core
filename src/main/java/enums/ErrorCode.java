@@ -2,5 +2,5 @@ package enums;
 
 public enum ErrorCode {
 	RESOURCE_NOT_FOUND,
-	NOT_AUTHORIZED;
+	RESOURCE_IN_USE;
 }

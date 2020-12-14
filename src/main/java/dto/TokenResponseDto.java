@@ -1,6 +1,9 @@
 package dto;
 
+import javax.validation.constraints.NotBlank;
+
 public class TokenResponseDto {
+	@NotBlank
     private String token;
 
     public TokenResponseDto() {

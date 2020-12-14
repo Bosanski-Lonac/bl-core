@@ -1,23 +1,14 @@
 package dto;
 
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Positive;
 
-public class AvionDto {
-	@NotNull
-	private Long id;
+public class AvionCUDto {
 	@NotBlank
 	private String naziv;
 	@Positive
 	private Integer kapacitetPutnika;
 	
-	public Long getId() {
-		return id;
-	}
-	public void setId(Long id) {
-		this.id = id;
-	}
 	public String getNaziv() {
 		return naziv;
 	}

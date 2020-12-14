@@ -1,7 +1,11 @@
 package dto;
 
+import javax.validation.constraints.NotBlank;
+
 public class TokenRequestDto {
+	@NotBlank
 	private String username;
+	@NotBlank
     private String password;
 
     public TokenRequestDto() {

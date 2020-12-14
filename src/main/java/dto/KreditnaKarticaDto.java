@@ -1,9 +1,11 @@
 package dto;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 public class KreditnaKarticaDto {
+	@NotNull
 	private Long id;
 	@Size(min = 9, max = 19)
 	private String krajKartice;
