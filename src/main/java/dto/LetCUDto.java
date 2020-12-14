@@ -1,7 +1,5 @@
 package dto;
 
-import java.time.Duration;
-
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Positive;
@@ -11,8 +9,8 @@ public class LetCUDto {
 	private String pocetnaDestinacija;
 	@NotBlank
 	private String krajnjaDestinacija;
-	@NotNull
-	private Duration duzinaLeta;
+	@Positive
+	private Integer duzina;
 	@Positive
 	private Integer cena;
 	@NotNull
@@ -30,11 +28,11 @@ public class LetCUDto {
 	public void setKrajnjaDestinacija(String krajnjaDestinacija) {
 		this.krajnjaDestinacija = krajnjaDestinacija;
 	}
-	public Duration getDuzinaLeta() {
-		return duzinaLeta;
+	public Integer getDuzina() {
+		return duzina;
 	}
-	public void setDuzinaLeta(Duration duzinaLeta) {
-		this.duzinaLeta = duzinaLeta;
+	public void setDuzina(Integer duzina) {
+		this.duzina = duzina;
 	}
 	public Integer getCena() {
 		return cena;
