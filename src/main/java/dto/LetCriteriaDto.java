@@ -7,6 +7,13 @@ public class LetCriteriaDto {
 	private Integer maxDuzina;
 	private Integer minCena;
 	private Integer maxCena;
+	private Integer brojStranice;
+	
+	public LetCriteriaDto() {
+		brojStranice = 0;
+		pocetnaDestinacija = "";
+		krajnjaDestinacija = "";
+	}
 	
 	public String getPocetnaDestinacija() {
 		return pocetnaDestinacija;
@@ -43,5 +50,29 @@ public class LetCriteriaDto {
 	}
 	public void setMaxCena(Integer maxCena) {
 		this.maxCena = maxCena;
+	}
+	public Integer getBrojStranice() {
+		return brojStranice;
+	}
+	public void setBrojStranice(Integer brojStranice) {
+		this.brojStranice = brojStranice;
+	}
+	
+	public String getQuery() {
+		String query = "?";
+		if(!pocetnaDestinacija.isBlank()) {
+			query += "dprt=" + pocetnaDestinacija + "&";
+		}
+		if(!krajnjaDestinacija.isBlank()) {
+			query += "arvl=" + krajnjaDestinacija + "&";
+		}
+		if(minDuzina != null && maxDuzina != null) {
+			query += "nduz=" + minDuzina.toString() + "&xduz=" + maxDuzina.toString() + "&";
+		}
+		if(minCena != null && maxCena != null) {
+			query += "ncen=" + minCena.toString() + "&xcen=" + maxCena.toString() + "&";
+		}
+		query += "bstr=" + brojStranice;
+		return query;
 	}
 }

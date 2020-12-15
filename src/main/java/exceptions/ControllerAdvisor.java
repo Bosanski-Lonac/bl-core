@@ -40,6 +40,7 @@ public class ControllerAdvisor extends ResponseEntityExceptionHandler {
 	@ExceptionHandler(EmptyResultDataAccessException.class)
 	public ResponseEntity<Object> handleEmptyResultDataAccessException(
 			EmptyResultDataAccessException ex, WebRequest request) {
+		
 		Map<String, Object> body = new LinkedHashMap<>();
         body.put("timestamp", LocalDateTime.now());
         body.put("message", "Objekat koji treba da se izbriše nije nađen.");

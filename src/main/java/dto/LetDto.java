@@ -54,4 +54,7 @@ public class LetDto {
 	public void setAvion(AvionDto avion) {
 		this.avion = avion;
 	}
+	public Integer getKapacitet() {
+		return avion.getKapacitetPutnika();
+	}
 }
