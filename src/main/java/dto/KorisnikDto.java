@@ -1,27 +1,40 @@
 package dto;
 
-import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.NotNull;
 
 import enums.Rank;
+import enums.Role;
 
 public class KorisnikDto {
-	@Email
-	private String email;
-	@NotBlank(message = "Ime ne moze ostati prazno")
+	@NotNull
+	private Long id;
+	@NotBlank
+	private String username;
+	@NotNull
+	private Role role;
 	private String ime;
-	@NotBlank(message = "Prezime ne moze ostati prazno")
 	private String prezime;
-	@Size(min = 9, max = 9, message = "Broj pasosa je uvek 9 karaktera")
 	private String brojPasosa;
 	private Rank rank;
 	
-	public String getEmail() {
-		return email;
+	public Long getId() {
+		return id;
 	}
-	public void setEmail(String email) {
-		this.email = email;
+	public void setId(Long id) {
+		this.id = id;
+	}
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	public Role getRole() {
+		return role;
+	}
+	public void setRole(Role role) {
+		this.role = role;
 	}
 	public String getIme() {
 		return ime;

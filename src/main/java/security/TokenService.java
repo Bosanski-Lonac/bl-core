@@ -1,11 +1,11 @@
 package security;
 
+import dto.KorisnikDto;
 import dto.TokenResponseDto;
-import enums.Role;
 import io.jsonwebtoken.Claims;
 
 public interface TokenService {
-	TokenResponseDto createToken(Long id, Role role);
+	TokenResponseDto createToken(KorisnikDto korisnikDto);
 	String generate(Claims claims);
     Claims parseToken(String authorization);
     Long getIdFromToken(String authorization);

@@ -2,8 +2,8 @@ package security;
 
 import org.springframework.stereotype.Service;
 
+import dto.KorisnikDto;
 import dto.TokenResponseDto;
-import enums.Role;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -50,11 +50,11 @@ public class TokenServiceImpl implements TokenService {
 	}
 
 	@Override
-	public TokenResponseDto createToken(Long id, Role role) {
+	public TokenResponseDto createToken(KorisnikDto korisnikDto) {
 		Claims claims = Jwts.claims();
-		claims.put("id", id);
-		claims.put("role", role.toString());
-		return new TokenResponseDto(generate(claims), id);
+		claims.put("id", korisnikDto.getId());
+		claims.put("role", korisnikDto.getRole());
+		return new TokenResponseDto(generate(claims), korisnikDto);
 	}
 
 }

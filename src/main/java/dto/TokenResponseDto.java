@@ -7,15 +7,15 @@ public class TokenResponseDto {
 	@NotBlank
     private String token;
 	@NotNull
-	private Long id;
+	private KorisnikDto korisnikDto;
 	
 	public TokenResponseDto() {
 		
 	}
 
-    public TokenResponseDto(String token, Long id) {
+    public TokenResponseDto(String token, KorisnikDto korisnikDto) {
         this.token = token;
-        this.id = id;
+        this.korisnikDto = korisnikDto;
     }
 
 	public String getToken() {
@@ -26,11 +26,11 @@ public class TokenResponseDto {
 		this.token = token;
 	}
 
-	public Long getId() {
-		return id;
+	public KorisnikDto getKorisnikDto() {
+		return korisnikDto;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public void setKorisnikDto(KorisnikDto korisnikDto) {
+		this.korisnikDto = korisnikDto;
 	}
 }
