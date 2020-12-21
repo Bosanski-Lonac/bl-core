@@ -9,6 +9,11 @@ public class AvionCUDto {
 	@Positive
 	private Integer kapacitetPutnika;
 	
+	public AvionCUDto(String naziv, Integer kapacitetPutnika) {
+		this.naziv=naziv;
+		this.kapacitetPutnika=kapacitetPutnika;
+	}
+	
 	public String getNaziv() {
 		return naziv;
 	}

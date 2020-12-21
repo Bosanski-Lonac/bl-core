@@ -20,6 +20,14 @@ public class LetCUDto {
 	@NotNull
 	private Long idAvion;
 	
+	public LetCUDto(String pocetnaDestinacija, String krajnjaDestinacija, Integer duzina, BigDecimal cena, Integer milje) {
+		this.pocetnaDestinacija=pocetnaDestinacija;
+		this.krajnjaDestinacija=krajnjaDestinacija;
+		this.duzina=duzina;
+		this.cena=cena;
+		this.milje=milje;
+	}
+	
 	public String getPocetnaDestinacija() {
 		return pocetnaDestinacija;
 	}
