@@ -12,4 +12,13 @@ public enum Rank {
 	public Integer getMilje() {
 		return this.milje;
 	}
+	
+	public static Rank getRankForMilje(Integer milje) {
+		for(Rank rank : Rank.values()) {
+			if(milje >= rank.milje) {
+				return rank;
+			}
+		}
+		return null;
+	}
 }
