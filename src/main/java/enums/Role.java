@@ -2,7 +2,8 @@ package enums;
 
 public enum Role {
 	ROLE_USER(false),
-	ROLE_ADMIN(true);
+	ROLE_ADMIN(true),
+	ROLE_SERVICE(true);
 	
 	private final boolean globalPermissions;
 	

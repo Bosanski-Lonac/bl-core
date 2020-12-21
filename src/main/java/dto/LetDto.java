@@ -1,5 +1,7 @@
 package dto;
 
+import java.math.BigDecimal;
+
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Positive;
@@ -14,7 +16,9 @@ public class LetDto {
 	@Positive
 	private Integer duzina;
 	@Positive
-	private Integer cena;
+	private BigDecimal cena;
+	@Positive
+	private Integer milje;
 	@NotNull
 	private AvionDto avion;
 	
@@ -42,11 +46,17 @@ public class LetDto {
 	public void setDuzina(Integer duzina) {
 		this.duzina = duzina;
 	}
-	public Integer getCena() {
+	public BigDecimal getCena() {
 		return cena;
 	}
-	public void setCena(Integer cena) {
+	public void setCena(BigDecimal cena) {
 		this.cena = cena;
+	}
+	public Integer getMilje() {
+		return milje;
+	}
+	public void setMilje(Integer milje) {
+		this.milje = milje;
 	}
 	public AvionDto getAvion() {
 		return avion;

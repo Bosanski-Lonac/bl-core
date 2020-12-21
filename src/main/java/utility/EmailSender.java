@@ -1,4 +1,4 @@
-package security;
+package utility;
 
 import java.util.Properties;
 
