@@ -3,7 +3,7 @@ package utility;
 public class BLURL {
 	public static final String KS_URL = "http://localhost:36250/api";
 	public static final String KORISNIK_URL = "/korisnik";
-	public static final String DISCOUNT_URL = "/rank";
+	public static final String RESERVE_URL = "/reserve";
 	public static final String ADMIN_URL = "/admin";
 	public static final String CC_URL = "/cc";
 	

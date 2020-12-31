@@ -1,8 +1,10 @@
 package dto;
 
+import java.math.BigDecimal;
 import java.sql.Date;
 
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Positive;
 
 public class KartaDto {
 	@NotNull
@@ -11,6 +13,8 @@ public class KartaDto {
 	private Long letId;
 	@NotNull
 	private Date datumKupovine;
+	@Positive
+	private BigDecimal cena;
 	
 	public Long getId() {
 		return id;
@@ -29,5 +33,11 @@ public class KartaDto {
 	}
 	public void setDatumKupovine(Date datumKupovine) {
 		this.datumKupovine = datumKupovine;
+	}
+	public BigDecimal getCena() {
+		return cena;
+	}
+	public void setCena(BigDecimal cena) {
+		this.cena = cena;
 	}
 }
