@@ -7,6 +7,7 @@ public class KartaCUDto {
 	private Long letId;
 	// Overwritten by servis za avionske karte and then korisnicki servis.
 	private BigDecimal cena;
+	private Integer milje;
 
 	public Long getKreditnaKarticaId() {
 		return kreditnaKarticaId;
@@ -30,6 +31,14 @@ public class KartaCUDto {
 
 	public void setCena(BigDecimal cena) {
 		this.cena = cena;
+	}
+
+	public Integer getMilje() {
+		return milje;
+	}
+
+	public void setMilje(Integer milje) {
+		this.milje = milje;
 	}
 	
 }
