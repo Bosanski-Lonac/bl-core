@@ -15,19 +15,22 @@ public class BLURL {
 	private static final String SZAK_URL = "http://localhost:13770/api";
 	private static final String KARTA_URL = "/karta";
 	
+	public static final String AMQUEUE_FIDS = "removed_flight_ids";
+	public static final String AMQUEUE_REFUND = "refund_ticket";
+	
 	private BLURL() {
 		
 	}
 	
-	public static String getAdminURL() {
+	public static final String getAdminURL() {
 		return KS_URL + ADMIN_URL;
 	}
 	
-	public static String getKSReserveURL(Long korisnikId) {
+	public static final String getKSReserveURL(Long korisnikId) {
 		return KS_URL + KORISNIK_URL + "/" + korisnikId.toString() + CC_URL + RESERVE_URL;
 	}
 	
-	public static String getLetURL(Long letId) {
+	public static final String getLetURL(Long letId) {
 		return SZL_URL + LET_URL + "/" + letId.toString();
 	}
 	

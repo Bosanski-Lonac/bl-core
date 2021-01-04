@@ -2,27 +2,23 @@ package dto;
 
 import java.math.BigDecimal;
 
-public class KartaCUDto {
-	private Long kreditnaKarticaId;
-	private Long letId;
-	// Overwritten by servis za avionske karte and then korisnicki servis.
-	private BigDecimal cena;
-	private Integer milje;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Positive;
 
+public class KartaKSDto {
+	@NotNull
+	private Long kreditnaKarticaId;
+	@Positive
+	private BigDecimal cena;
+	@Positive
+	private Integer milje;
+	
 	public Long getKreditnaKarticaId() {
 		return kreditnaKarticaId;
 	}
 
 	public void setKreditnaKarticaId(Long kreditnaKarticaId) {
 		this.kreditnaKarticaId = kreditnaKarticaId;
-	}
-	
-	public Long getLetId() {
-		return letId;
-	}
-
-	public void setLetId(Long letId) {
-		this.letId = letId;
 	}
 
 	public BigDecimal getCena() {
@@ -40,5 +36,4 @@ public class KartaCUDto {
 	public void setMilje(Integer milje) {
 		this.milje = milje;
 	}
-	
 }

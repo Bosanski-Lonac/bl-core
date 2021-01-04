@@ -1,30 +1,29 @@
 package dto;
 
-import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
 
 public class PovracajNovcaDto {
-	private Map<Long, BigDecimal> listaKorisnikCena;
-	private Integer milje;
+	private Map<Long, RezervacijeDto> listaKorisnikCena;
+	private LetDto letDto;
 	
 	public PovracajNovcaDto() {
 		listaKorisnikCena = new HashMap<>();
 	}
 
-	public Map<Long, BigDecimal> getListaKorisnikCena() {
+	public Map<Long, RezervacijeDto> getListaKorisnikCena() {
 		return listaKorisnikCena;
 	}
 
-	public void setListaKorisnikCena(Map<Long, BigDecimal> listaKorisnikCena) {
+	public void setListaKorisnikCena(Map<Long, RezervacijeDto> listaKorisnikCena) {
 		this.listaKorisnikCena = listaKorisnikCena;
 	}
 
-	public Integer getMilje() {
-		return milje;
+	public LetDto getLetDto() {
+		return letDto;
 	}
 
-	public void setMilje(Integer milje) {
-		this.milje = milje;
+	public void setLetDto(LetDto letDto) {
+		this.letDto = letDto;
 	}
 }
