@@ -20,10 +20,15 @@ public class BLURL {
 	
 	//private static final String EUREKA_URL = "http://localhost:8761";
 	private static final String GATEWAY_URL = "http://localhost:8080";
+	private static final String KS_NAME_URL = "/bl-korisnicki-servis/api";
+	private static final String SZL_NAME_URL = "/bl-servis-za-letove/api";
+	private static final String SZAK_NAME_URL = "/bl-servis-za-avionske-karte/api";
 	
 	private BLURL() {
 		
 	}
+	
+	// INTER-SERVICE COMMUNICATION
 	
 	public static final String getAdminURL() {
 		return KS_URL + ADMIN_URL;
@@ -37,55 +42,57 @@ public class BLURL {
 		return SZL_URL + LET_URL + "/" + letId.toString();
 	}
 	
+	// GATEWAY URLS
+	
 	public static String getGatewayAdminURL() {
-		return KS_URL + ADMIN_URL;
+		return GATEWAY_URL + KS_NAME_URL + ADMIN_URL;
 	}
 	
 	public static String getGatewayUserLoginURL() {
-		return KS_URL + KORISNIK_URL + LOGIN_URL;
+		return GATEWAY_URL + KS_NAME_URL + KORISNIK_URL + LOGIN_URL;
 	}
 	
 	public static String getGatewayUserCreateURL() {
-		return KS_URL + KORISNIK_URL;
+		return GATEWAY_URL + KS_NAME_URL + KORISNIK_URL;
 	}
 	
 	public static String getGatewayUserOperationURL(Long korisnikId) {
-		return KS_URL + KORISNIK_URL + "/" + korisnikId.toString();
+		return GATEWAY_URL + KS_NAME_URL + KORISNIK_URL + "/" + korisnikId.toString();
 	}
 	
 	public static String getGatewayCCOperationURL(Long korisnikId) {
-		return KS_URL + KORISNIK_URL + "/" + korisnikId.toString() + CC_URL;
+		return GATEWAY_URL + KS_NAME_URL + KORISNIK_URL + "/" + korisnikId.toString() + CC_URL;
 	}
 	
 	public static String getGatewayCCDisplayURL(Long korisnikId, Integer brojStranice) {
-		return KS_URL + KORISNIK_URL + "/" + korisnikId.toString() + CC_URL + "?bstr=" + brojStranice.toString();
+		return GATEWAY_URL + KS_NAME_URL + KORISNIK_URL + "/" + korisnikId.toString() + CC_URL + "?bstr=" + brojStranice.toString();
 	}
 	
 	public static String getGatewayCCDeleteURL(Long korisnikId, Long ccId) {
-		return KS_URL + KORISNIK_URL + "/" + korisnikId.toString() + CC_URL + "/" + ccId.toString();
+		return GATEWAY_URL + KS_NAME_URL + KORISNIK_URL + "/" + korisnikId.toString() + CC_URL + "/" + ccId.toString();
 	}
 	
 	public static String getGatewayPlaneCreateURL() {
-		return SZL_URL + AVION_URL;
+		return GATEWAY_URL + SZL_NAME_URL + AVION_URL;
 	}
 	
 	public static String getGatewayDisplayPlanesURL(Integer brojStranice) {
-		return SZL_URL + AVION_URL + "?bstr=" + brojStranice.toString();
+		return GATEWAY_URL + SZL_NAME_URL + AVION_URL + "?bstr=" + brojStranice.toString();
 	}
 	
 	public static String getGatewayPlaneDeleteURL(Long avionId) {
-		return SZL_URL + AVION_URL + "/" + avionId.toString();
+		return GATEWAY_URL + SZL_NAME_URL + AVION_URL + "/" + avionId.toString();
 	}
 	
 	public static String getGatewayFlightCreateURL() {
-		return SZL_URL + LET_URL;
+		return GATEWAY_URL + SZL_NAME_URL + LET_URL;
 	}
 	
 	public static String getGatewayFlightQueryURL(String query) {
-		return SZL_URL + LET_URL + query;
+		return GATEWAY_URL + SZL_NAME_URL + LET_URL + query;
 	}
 	
 	public static String getGatewayFlightDeleteURL(Long letId) {
-		return SZL_URL + LET_URL + "/" + letId.toString();
+		return GATEWAY_URL + SZL_NAME_URL + LET_URL + "/" + letId.toString();
 	}
 }
