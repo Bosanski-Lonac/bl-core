@@ -12,11 +12,14 @@ public class BLURL {
 	private static final String LET_URL = "/let";
 	private static final String AVION_URL = "/avion";
 	
-	private static final String SZAK_URL = "http://localhost:13770/api";
-	private static final String KARTA_URL = "/karta";
+	//private static final String SZAK_URL = "http://localhost:13770/api";
+	//private static final String KARTA_URL = "/karta";
 	
 	public static final String AMQUEUE_FIDS = "removed_flight_ids";
 	public static final String AMQUEUE_REFUND = "refund_ticket";
+	
+	//private static final String EUREKA_URL = "http://localhost:8761";
+	private static final String GATEWAY_URL = "http://localhost:8080";
 	
 	private BLURL() {
 		
