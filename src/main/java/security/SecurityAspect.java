@@ -1,7 +1,10 @@
 package security;
 
 import java.lang.reflect.Method;
+import java.time.LocalDateTime;
 import java.util.Arrays;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -45,16 +48,14 @@ public class SecurityAspect {
             		methodId = (Long)joinPoint.getArgs()[i];
             	}
             }
-            /*if (methodSignature.getParameterNames()[i].equals("kreditnaKarticaCreateDto")) {
-            	if(joinPoint.getArgs()[i] instanceof KreditnaKarticaCUDto) {
-            		KreditnaKarticaCUDto kreditnaKarticaCreateDto = (KreditnaKarticaCUDto)joinPoint.getArgs()[i];
-            		methodId = kreditnaKarticaCreateDto.getKorisnikId();
-            	}
-            }*/
         }
         
+		Map<String, Object> body = new LinkedHashMap<>();
+        body.put("timestamp", LocalDateTime.now());
+        body.put("message", "Niste ulogovani.");
+        
         if (claims == null) {
-            return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+            return new ResponseEntity<>(body, HttpStatus.UNAUTHORIZED);
         }
 
         CheckSecurity checkSecurity = method.getAnnotation(CheckSecurity.class);
@@ -73,6 +74,7 @@ public class SecurityAspect {
         	}
         }
 
-        return new ResponseEntity<>(HttpStatus.FORBIDDEN);
+        body.put("message", "Nemate dozvolu za ovo.");
+        return new ResponseEntity<>(body, HttpStatus.FORBIDDEN);
     }
 }

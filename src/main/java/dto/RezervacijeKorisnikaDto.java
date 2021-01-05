@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 
 import javax.validation.constraints.Positive;
 
-public class RezervacijeDto {
+public class RezervacijeKorisnikaDto {
 	@Positive
 	private Integer brojRezervacija;
 	@Positive

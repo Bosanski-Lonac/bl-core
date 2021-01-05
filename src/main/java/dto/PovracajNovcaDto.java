@@ -1,21 +1,16 @@
 package dto;
 
-import java.util.HashMap;
 import java.util.Map;
 
 public class PovracajNovcaDto {
-	private Map<Long, RezervacijeDto> listaKorisnikCena;
+	private Map<Long, RezervacijeKorisnikaDto> listaKorisnikCena;
 	private LetDto letDto;
-	
-	public PovracajNovcaDto() {
-		listaKorisnikCena = new HashMap<>();
-	}
 
-	public Map<Long, RezervacijeDto> getListaKorisnikCena() {
+	public Map<Long, RezervacijeKorisnikaDto> getListaKorisnikCena() {
 		return listaKorisnikCena;
 	}
 
-	public void setListaKorisnikCena(Map<Long, RezervacijeDto> listaKorisnikCena) {
+	public void setListaKorisnikCena(Map<Long, RezervacijeKorisnikaDto> listaKorisnikCena) {
 		this.listaKorisnikCena = listaKorisnikCena;
 	}
 

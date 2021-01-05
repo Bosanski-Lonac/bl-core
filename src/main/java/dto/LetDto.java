@@ -19,8 +19,8 @@ public class LetDto {
 	private BigDecimal cena;
 	@Positive
 	private Integer milje;
-	@NotNull
-	private AvionDto avion;
+	@Positive
+	private Integer slobodno;
 	
 	public Long getId() {
 		return id;
@@ -58,13 +58,10 @@ public class LetDto {
 	public void setMilje(Integer milje) {
 		this.milje = milje;
 	}
-	public AvionDto getAvion() {
-		return avion;
-	}
-	public void setAvion(AvionDto avion) {
-		this.avion = avion;
-	}
 	public Integer getKapacitet() {
-		return avion.getKapacitetPutnika();
+		return slobodno;
+	}
+	public void setKapacitet(Integer slobodno) {
+		this.slobodno = slobodno;
 	}
 }
