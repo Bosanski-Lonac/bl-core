@@ -99,4 +99,8 @@ public class BLURL {
 	public static String getGatewayReserveURL(Long korisnikId) {
 		return GATEWAY_URL + SZAK_NAME_URL + KARTA_URL + "/" + korisnikId.toString();
 	}
+	
+	public static String getGatewayReservedSlotsURL(Long letId) {
+		return GATEWAY_URL + SZAK_NAME_URL + KARTA_URL + LET_URL + "?id=" + letId.toString();
+	}
 }
