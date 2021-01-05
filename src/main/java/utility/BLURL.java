@@ -13,7 +13,7 @@ public class BLURL {
 	private static final String AVION_URL = "/avion";
 	
 	//private static final String SZAK_URL = "http://localhost:13770/api";
-	//private static final String KARTA_URL = "/karta";
+	private static final String KARTA_URL = "/karta";
 	
 	public static final String AMQUEUE_FIDS = "removed_flight_ids";
 	public static final String AMQUEUE_REFUND = "refund_ticket";
@@ -94,5 +94,9 @@ public class BLURL {
 	
 	public static String getGatewayFlightDeleteURL(Long letId) {
 		return GATEWAY_URL + SZL_NAME_URL + LET_URL + "/" + letId.toString();
+	}
+	
+	public static String getGatewayReserveURL(Long korisnikId) {
+		return GATEWAY_URL + SZAK_NAME_URL + KARTA_URL + "/" + korisnikId.toString();
 	}
 }
