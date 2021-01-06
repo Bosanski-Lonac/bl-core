@@ -7,6 +7,8 @@ public class LetCriteriaDto {
 	private Integer maxDuzina;
 	private Integer minCena;
 	private Integer maxCena;
+	private Integer minDaljina;
+	private Integer maxDaljina;
 	private Integer brojStranice;
 	
 	public LetCriteriaDto() {
@@ -51,9 +53,27 @@ public class LetCriteriaDto {
 	public void setMaxCena(Integer maxCena) {
 		this.maxCena = maxCena;
 	}
+	
+	public Integer getMinDaljina() {
+		return minDaljina;
+	}
+
+	public void setMinDaljina(Integer minDaljina) {
+		this.minDaljina = minDaljina;
+	}
+
+	public Integer getMaxDaljina() {
+		return maxDaljina;
+	}
+
+	public void setMaxDaljina(Integer maxDaljina) {
+		this.maxDaljina = maxDaljina;
+	}
+	
 	public Integer getBrojStranice() {
 		return brojStranice;
 	}
+
 	public void setBrojStranice(Integer brojStranice) {
 		this.brojStranice = brojStranice;
 	}
@@ -71,6 +91,9 @@ public class LetCriteriaDto {
 		}
 		if(minCena != null && maxCena != null) {
 			query += "ncen=" + minCena.toString() + "&xcen=" + maxCena.toString() + "&";
+		}
+		if(minDaljina != null && maxDaljina != null) {
+			query += "ndal=" + minDaljina.toString() + "&xdal=" + maxDaljina.toString() + "&";
 		}
 		query += "bstr=" + brojStranice;
 		return query;
