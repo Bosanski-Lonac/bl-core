@@ -103,4 +103,8 @@ public class BLURL {
 	public static String getGatewayReserveURL(Long korisnikId) {
 		return GATEWAY_URL + SZAK_NAME_URL + KARTA_URL + "/" + korisnikId.toString();
 	}
+	
+	public static String getGatewayReservationsURL(Long korisnikId, Integer brojStranice) {
+		return GATEWAY_URL + SZAK_NAME_URL + KARTA_URL + "/" + korisnikId.toString() + "?bstr=" + brojStranice.toString();
+	}
 }

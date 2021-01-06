@@ -1,12 +1,15 @@
 package dto;
 
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Positive;
 
 public class KartaReserveDto {
 	@NotNull
 	private Long kreditnaKarticaId;
 	@NotNull
 	private Long letId;
+	@Positive
+	private Integer kolicina;
 
 	public Long getKreditnaKarticaId() {
 		return kreditnaKarticaId;
@@ -22,6 +25,14 @@ public class KartaReserveDto {
 
 	public void setLetId(Long letId) {
 		this.letId = letId;
+	}
+
+	public Integer getKolicina() {
+		return kolicina;
+	}
+
+	public void setKolicina(Integer kolicina) {
+		this.kolicina = kolicina;
 	}
 	
 }

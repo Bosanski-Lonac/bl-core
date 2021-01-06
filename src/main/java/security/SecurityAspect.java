@@ -1,10 +1,7 @@
 package security;
 
 import java.lang.reflect.Method;
-import java.time.LocalDateTime;
 import java.util.Arrays;
-import java.util.LinkedHashMap;
-import java.util.Map;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -12,10 +9,10 @@ import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 
 import enums.Role;
+import exceptions.ForbiddenException;
+import exceptions.UnauthorisedException;
 import io.jsonwebtoken.Claims;
 
 @Aspect
@@ -50,12 +47,8 @@ public class SecurityAspect {
             }
         }
         
-		Map<String, Object> body = new LinkedHashMap<>();
-        body.put("timestamp", LocalDateTime.now());
-        body.put("message", "Niste ulogovani.");
-        
         if (claims == null) {
-            return new ResponseEntity<>(body, HttpStatus.UNAUTHORIZED);
+            throw new UnauthorisedException("Niste ulogovani.");
         }
 
         CheckSecurity checkSecurity = method.getAnnotation(CheckSecurity.class);
@@ -74,7 +67,6 @@ public class SecurityAspect {
         	}
         }
 
-        body.put("message", "Nemate dozvolu za ovo.");
-        return new ResponseEntity<>(body, HttpStatus.FORBIDDEN);
+        throw new ForbiddenException("Nemate dozvolu za ovo.");
     }
 }
