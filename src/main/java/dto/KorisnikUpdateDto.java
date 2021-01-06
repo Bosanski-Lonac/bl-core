@@ -8,7 +8,7 @@ import javax.validation.constraints.Size;
 public class KorisnikUpdateDto {
 	@Email(message = "Mora biti validan email")
 	private String email;
-	@NotBlank(message = "Morate ukucati trenutnu sifru")
+	@NotBlank(message = "Morate ukucati trenutnu šifru")
 	private String sifra;
 	@NotNull
 	private String novaSifra;

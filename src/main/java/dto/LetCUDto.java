@@ -7,17 +7,17 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Positive;
 
 public class LetCUDto {
-	@NotBlank
+	@NotBlank(message = "Nije određena početna destinacija")
 	private String pocetnaDestinacija;
-	@NotBlank
+	@NotBlank(message = "Nije određena krajnja destinacija")
 	private String krajnjaDestinacija;
-	@Positive
+	@Positive(message = "Nije određeno trajanje leta")
 	private Integer duzina;
-	@Positive
+	@Positive(message = "Nije određena cena leta")
 	private BigDecimal cena;
-	@Positive
+	@Positive(message = "Nije određena daljina")
 	private Integer milje;
-	@NotNull
+	@NotNull(message = "Nije odabran avion koji će da usluži let")
 	private Long idAvion;
 	
 	public LetCUDto(String pocetnaDestinacija, String krajnjaDestinacija, Integer duzina, BigDecimal cena, Integer milje, Long idAvion) {

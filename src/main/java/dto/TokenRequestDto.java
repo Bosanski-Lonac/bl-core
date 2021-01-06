@@ -3,9 +3,9 @@ package dto;
 import javax.validation.constraints.NotBlank;
 
 public class TokenRequestDto {
-	@NotBlank
+	@NotBlank(message = "Niste prosledili korisničko ime")
 	private String username;
-	@NotBlank
+	@NotBlank(message = "Niste prosledili šifru")
     private String password;
 
     public TokenRequestDto() {

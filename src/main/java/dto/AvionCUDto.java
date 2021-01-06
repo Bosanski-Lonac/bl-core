@@ -4,9 +4,9 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Positive;
 
 public class AvionCUDto {
-	@NotBlank
+	@NotBlank(message = "Avion mora da ima naziv")
 	private String naziv;
-	@Positive
+	@Positive(message = "Avion mora da ima kapacitet veci od 0")
 	private Integer kapacitetPutnika;
 	
 	public AvionCUDto(String naziv, Integer kapacitetPutnika) {

@@ -4,11 +4,11 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Positive;
 
 public class KartaReserveDto {
-	@NotNull
+	@NotNull(message = "Mora da bude izabrana kreditna kartica za plaćanje karte")
 	private Long kreditnaKarticaId;
-	@NotNull
+	@NotNull(message = "Mora da bude izabran let za kartu")
 	private Long letId;
-	@Positive
+	@Positive(message = "Mora da bude izabrana količina karata za rezervaciju")
 	private Integer kolicina;
 
 	public Long getKreditnaKarticaId() {
