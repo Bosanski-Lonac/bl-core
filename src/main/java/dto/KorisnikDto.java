@@ -16,7 +16,7 @@ public class KorisnikDto {
 	private String ime;
 	private String prezime;
 	private String brojPasosa;
-	private Rank rank;
+	private Integer milje;
 	
 	public Long getId() {
 		return id;
@@ -54,10 +54,13 @@ public class KorisnikDto {
 	public void setBrojPasosa(String brojPasosa) {
 		this.brojPasosa = brojPasosa;
 	}
-	public Rank getRank() {
-		return rank;
+	public Integer getMilje() {
+		return milje;
 	}
-	public void setRank(Rank rank) {
-		this.rank = rank;
+	public void setMilje(Integer milje) {
+		this.milje = milje;
+	}
+	public Rank odrediRank() {
+		return Rank.getRankForMilje(milje);
 	}
 }

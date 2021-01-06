@@ -1,18 +1,18 @@
 package dto;
 
-import java.util.List;
+import java.util.Set;
 
 import javax.validation.constraints.NotNull;
 
 public class ListaLetovaDto {
 	@NotNull(message = "Lista letova mora da postoji")
-	private List<Long> letovi;
+	private Set<Long> letovi;
 
-	public List<Long> getLetovi() {
+	public Set<Long> getLetovi() {
 		return letovi;
 	}
 
-	public void setLetovi(List<Long> letovi) {
+	public void setLetovi(Set<Long> letovi) {
 		this.letovi = letovi;
 	}
 }

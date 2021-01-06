@@ -84,7 +84,7 @@ public class BLURL {
 		return GATEWAY_URL + SZL_NAME_URL + AVION_URL + "/" + avionId.toString();
 	}
 	
-	public static String getGatewayFlightCreateURL() {
+	public static String getGatewayFlightURL() {
 		return GATEWAY_URL + SZL_NAME_URL + LET_URL;
 	}
 	
@@ -106,5 +106,9 @@ public class BLURL {
 	
 	public static final String getGatewayCountReservationsURL() {
 		return GATEWAY_URL + SZAK_NAME_URL + KARTA_URL;
+	}
+	
+	public static String getGatewayDeleteReservationURL(Long kartaId) {
+		return GATEWAY_URL + SZAK_NAME_URL + KARTA_URL + "/" + kartaId.toString();
 	}
 }
