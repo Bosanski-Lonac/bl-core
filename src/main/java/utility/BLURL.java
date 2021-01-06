@@ -12,7 +12,7 @@ public class BLURL {
 	private static final String LET_URL = "/let";
 	private static final String AVION_URL = "/avion";
 	
-	private static final String SZAK_URL = "http://localhost:13770/api";
+	//private static final String SZAK_URL = "http://localhost:13770/api";
 	private static final String KARTA_URL = "/karta";
 	
 	public static final String AMQUEUE_FIDS = "removed_flight_ids";
@@ -40,10 +40,6 @@ public class BLURL {
 	
 	public static final String getLetURL(Long letId) {
 		return SZL_URL + LET_URL + "/" + letId.toString();
-	}
-	
-	public static final String getCountReservationsURL() {
-		return SZAK_URL + KARTA_URL;
 	}
 	
 	// GATEWAY URLS
@@ -106,5 +102,9 @@ public class BLURL {
 	
 	public static String getGatewayReservationsURL(Long korisnikId, Integer brojStranice) {
 		return GATEWAY_URL + SZAK_NAME_URL + KARTA_URL + "/" + korisnikId.toString() + "?bstr=" + brojStranice.toString();
+	}
+	
+	public static final String getGatewayCountReservationsURL() {
+		return GATEWAY_URL + SZAK_NAME_URL + KARTA_URL;
 	}
 }
