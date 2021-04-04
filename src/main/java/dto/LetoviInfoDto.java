@@ -3,7 +3,6 @@ package dto;
 import javax.validation.constraints.Positive;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
 import java.util.List;
 
 public class LetoviInfoDto {
@@ -16,18 +15,6 @@ public class LetoviInfoDto {
     @Positive(message = "Duzina leta mora biti veca od 0")
     private Integer maxDuzina;
     private List<String> gradovi;
-
-    public LetoviInfoDto(BigDecimal minCena, BigDecimal maxCena, Integer minDuzina, Integer maxDuzina) {
-        this.minCena = minCena;
-        this.maxCena = maxCena;
-        this.minDuzina = minDuzina;
-        this.maxDuzina = maxDuzina;
-        gradovi = new ArrayList<>();
-    }
-
-    public LetoviInfoDto() {
-
-    }
 
     public BigDecimal getMinCena() { return minCena; }
     public BigDecimal getMaxCena() { return maxCena; }

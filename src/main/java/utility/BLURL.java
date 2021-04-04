@@ -11,6 +11,7 @@ public class BLURL {
 	private static final String SZL_URL = "http://localhost:26530/api";
 	private static final String LET_URL = "/let";
 	private static final String AVION_URL = "/avion";
+	private static final String INFO_URL = "/info";
 	
 	//private static final String SZAK_URL = "http://localhost:13770/api";
 	private static final String KARTA_URL = "/karta";
@@ -79,7 +80,7 @@ public class BLURL {
 	public static String getGatewayDisplayPlanesURL(Integer brojStranice) {
 		return GATEWAY_URL + SZL_NAME_URL + AVION_URL + "?bstr=" + brojStranice.toString();
 	}
-	
+
 	public static String getGatewayPlaneDeleteURL(Long avionId) {
 		return GATEWAY_URL + SZL_NAME_URL + AVION_URL + "/" + avionId.toString();
 	}
@@ -87,6 +88,8 @@ public class BLURL {
 	public static String getGatewayFlightURL() {
 		return GATEWAY_URL + SZL_NAME_URL + LET_URL;
 	}
+
+	public static String getGatewayFlightInfoURL() { return GATEWAY_URL + SZL_NAME_URL + LET_URL + INFO_URL; }
 	
 	public static String getGatewayFlightQueryURL(String query) {
 		return GATEWAY_URL + SZL_NAME_URL + LET_URL + query;
