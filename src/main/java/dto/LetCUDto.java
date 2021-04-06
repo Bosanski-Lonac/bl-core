@@ -19,6 +19,8 @@ public class LetCUDto {
 	private Integer milje;
 	@NotNull(message = "Nije odabran avion koji će da usluži let")
 	private Long idAvion;
+
+	public LetCUDto() {}
 	
 	public LetCUDto(String pocetnaDestinacija, String krajnjaDestinacija, Integer duzina, BigDecimal cena, Integer milje, Long idAvion) {
 		this.pocetnaDestinacija=pocetnaDestinacija;
