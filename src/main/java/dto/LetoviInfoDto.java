@@ -4,8 +4,7 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Positive;
 
 import java.math.BigDecimal;
-import java.util.List;
-import java.util.Set;
+import java.util.SortedSet;
 
 public class LetoviInfoDto {
     @Positive(message = "Cena karte mora biti veca od 0")
@@ -21,7 +20,7 @@ public class LetoviInfoDto {
     @Positive(message = "Trajanje leta mora biti vece od 0")
     private Integer maxDaljina;
     @NotEmpty
-    private Set<String> destinacije;
+    private SortedSet<String> destinacije;
 
     public BigDecimal getMinCena() { return minCena; }
     public BigDecimal getMaxCena() { return maxCena; }
@@ -29,12 +28,12 @@ public class LetoviInfoDto {
     public Integer getMaxDuzina() { return maxDuzina; }
     public Integer getMinDaljina() { return minDaljina; }
     public Integer getMaxDaljina() { return maxDaljina; }
-    public Set<String> getDestinacije() { return destinacije; }
+    public SortedSet<String> getDestinacije() { return destinacije; }
     public void setMinCena(BigDecimal minCena) { this.minCena = minCena; }
     public void setMaxCena(BigDecimal maxCena) { this.maxCena = maxCena; }
     public void setMinDuzina(Integer minDuzina) { this.minDuzina = minDuzina; }
     public void setMaxDuzina(Integer maxDuzina) { this.maxDuzina = maxDuzina; }
     public void setMinDaljina(Integer minDaljina) { this.minDaljina = minDaljina; }
     public void setMaxDaljina(Integer maxDaljina) { this.maxDaljina = maxDaljina; }
-    public void setDestinacije(Set<String> destinacije) { this.destinacije = destinacije; }
+    public void setDestinacije(SortedSet<String> destinacije) { this.destinacije = destinacije; }
 }
